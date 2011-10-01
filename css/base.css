@@ -1,0 +1,16 @@
+body {
+    padding-top: 60px;
+}
+
+/* 320x240 */
+.screenshot-small {
+    border: 1px solid #aaaaaa;
+}
+
+.hero-unit h1 {
+    margin-bottom: 20px;
+}
+
+#hero-unit-btn {
+    margin-top: 30px;
+}
