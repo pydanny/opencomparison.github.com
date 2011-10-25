@@ -15,9 +15,13 @@ body {
     margin-top: 30px;
 }
 
-textarea#code-to-grab {
+#code-to-grab {
     font: 11px 'courier new', courier, monospace;
     color: #444;
     width: 100%;
     height: 300px;
+}
+
+#hidden-widget-content {
+    display: none;
 }

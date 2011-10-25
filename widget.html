@@ -54,42 +54,20 @@
 
       <div class="row">
         <div class="span6">
-            <h2>Here's the widget</h2>
-            <!-- begin OpenComparison widget -->
-            <script src="js/opencomparison-widget.js" type="text/javascript"></script>
-            <div id="opencomparison-widget-container">
-                <div id="oc-widget-content">
-                    <h3>My OpenComparison Pages</h3>
-                    <p>I participate regularly in the open-source community.  Here are links to my OpenComparison pages:</p>
-                    <ul>
-                        <li><a href="http://djangopackages.com/profiles/audreyr">Django Packages</a></li>
-                        <li><a href="http://django.opencomparison.org/profiles/audreyr">Pyramid Packages</a></li>
-                        <li><a href="http://django.opencomparison.org/profiles/audreyr">Plone Packages</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- end OpenComparison widget -->            
+            <h2>Generate your widget</h2>
+            <form id="generate_widget_form">
+                Github username: <input type="text" name="github_username" id="github_username_input" /><br/>
+                <p>
+                    <input type="submit" name="submit" value="Update widget" />
+                </p>
+            </form>
+            <h2>Preview area</h2>
+            <div id="oc-widget-wrapper"></div>
         </div>
         <div class="span10">
             <h2>Grab the code here and paste it into your website</h2>
-            <div id="code-to-grab-container">
-                <textarea id="code-to-grab">
-<!-- begin OpenComparison widget -->
-<script src="js/opencomparison-widget.js" type="text/javascript"></script>
-<div id="opencomparison-widget-container">
-    <div id="oc-widget-content">
-        <h3>My OpenComparison Pages</h3>
-        <p>I participate regularly in the open-source community.  Here are links to my OpenComparison pages:</p>
-        <ul>
-            <li><a href="http://djangopackages.com/profiles/audreyr">Django Packages</a></li>
-            <li><a href="http://django.opencomparison.org/profiles/audreyr">Pyramid Packages</a></li>
-            <li><a href="http://django.opencomparison.org/profiles/audreyr">Plone Packages</a></li>
-        </ul>
-    </div>
-</div>
-<!-- end OpenComparison widget -->
-</textarea>
-            </div>
+            <textarea id="code-to-grab">
+            </textarea>
         </div>
       </div>
       <footer>
@@ -98,18 +76,33 @@
 
     </div> <!-- /container -->
 
-  <!-- Piwik --> 
-  <script type="text/javascript">
-  var pkBaseURL = (("https:" == document.location.protocol) ? "https://manage.cartwheelweb.com/piwik/" : "http://manage.cartwheelweb.com/piwik/");
-  document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-  </script><script type="text/javascript">
-  try {
-  var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 7);
-  piwikTracker.trackPageView();
-  piwikTracker.enableLinkTracking();
-  } catch( err ) {}
-  </script><noscript><p><img src="http://manage.cartwheelweb.com/piwik/piwik.php?idsite=7" style="border:0" alt="" /></p></noscript>
-  <!-- End Piwik Tracking Code -->
+<!-- Widget generator code -->
+<div id="hidden-widget-content">
+<!-- begin OpenComparison widget -->
+<script src="js/opencomparison-widget.js" type="text/javascript"></script>
+<div id="opencomparison-widget-container">
+    <div id="oc-widget-content">
+        <h3>githubuser on OpenComparison</h3>
+        <ul>
+            <li><a href="http://djangopackages.com/profiles/githubuser">Django Packages: githubuser</a></li>
+            <li><a href="http://pyramid.opencomparison.org/profiles/githubuser">Pyramid Packages: githubuser</a></li>
+            <li><a href="http://plone.opencomparison.org/profiles/githubuser">Plone Packages: githubuser</a></li>
+        </ul>
+    </div>
+</div>
+<!-- end OpenComparison widget -->
+</div>
+
+
+<script type="text/javascript">
+    $("#generate_widget_form").submit(function() {
+        widget_content = $("#hidden-widget-content").html().replace(/githubuser/g, $("#github_username_input").val());
+        $("#oc-widget-wrapper").html(widget_content);
+        $("#code-to-grab").val(widget_content);
+        return false;
+    });
+</script>
+<!-- End widget generator code -->
 
   </body>
 </html>
