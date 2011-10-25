@@ -1,0 +1,13 @@
+#opencomparison-widget-container {
+    position: relative;
+    width: 340px;
+    border: 5px #75dfca solid;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+}
+
+#oc-widget-content {
+    margin: 1em;
+    padding: 5px;
+    background: #ffffff;
+}
